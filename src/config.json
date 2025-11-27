@@ -1,0 +1,19 @@
+{
+    "model_id": "ai4bharat/indic-parler-tts",
+    "sample_rate": 24000,
+    "device": "cuda",
+    "supported_languages": {
+      "hi": "Hindi",
+      "bn": "Bengali",
+      "mr": "Marathi",
+      "te": "Telugu",
+      "kn": "Kannada",
+      "gu": "Gujarati",
+      "en": "English",
+      "bho": "Bhojpuri",
+      "mag": "Magadhi",
+      "hne": "Chhattisgarhi",
+      "mai": "Maithili"
+    }
+  }
+  
