@@ -1,0 +1,278 @@
+{
+  "test_cases": [
+    {
+      "description": "Hindi - Empathetic Motherly Style (Female)",
+      "text": "नमस्ते। आप कैसी हैं? गर्भावस्था के इस समय में आपका आराम और मानसिक शांति बहुत जरूरी है। अगर आज आपको थकान, चक्कर या कमजोरी महसूस हो रही हो, तो थोड़ा आराम करें, हल्का भोजन लें और पानी धीरे-धीरे घूंट घूंट करके पिएँ। चिंता मत कीजिए, मैं आपके साथ हूँ।",
+      "language": "hi",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Hindi - Neutral Nurse Style (Female)",
+      "text": "कृपया अपनी दवाइयाँ हर दिन समय पर लें। गर्भावस्था के दौरान आयरन और कैल्शियम की गोलियाँ प्रतिदिन लेना बहुत महत्वपूर्ण है। दिन में कम से कम पंद्रह से बीस मिनट हल्की वॉक करने की कोशिश करें, और तला-भुना तथा बहुत मसालेदार खाना कम खाएँ।",
+      "language": "hi",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Hindi - Urgent Alert Style (Female)",
+      "text": "चेतावनी। यदि आपको अचानक तेज बुखार आ जाए, पेट में तीव्र दर्द शुरू हो जाए, बहुत ज्यादा रक्तस्राव हो, या सांस लेने में कठिनाई होने लगे, तो देर बिल्कुल न करें। तुरंत अपने नजदीकी अस्पताल जाएँ या डॉक्टर से संपर्क करें। यह आपातकाल की स्थिति हो सकती है।",
+      "language": "hi",
+      "style": "urgent_alert",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Hindi - Friend Casual Style (Female)",
+      "text": "अरे, कैसी हो? सुना है आज तुम थोड़ा थका हुआ महसूस कर रही थीं। ज़्यादा टेंशन मत लो, थोड़ा आराम कर लो, मोबाइल दूर रखो और कोई हल्का म्यूज़िक सुन लो। अगर कल मौसम अच्छा रहा, तो हम दोनों शाम को थोड़ी देर पार्क में टहलने भी जा सकते हैं।",
+      "language": "hi",
+      "style": "friend_casual",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Hindi - Empathetic Motherly Style (Male)",
+      "text": "नमस्ते। आज आपको कैसा महसूस हो रहा है? अगर आपको कमजोरी, चक्कर या पेट में हल्का दर्द लग रहा हो, तो घबराइए मत। थोड़ी देर आराम कीजिए, गहरी साँस लीजिए और हल्का, सादा खाना खाइए। आपके और बच्चे दोनों की सुरक्षा हमारे लिए बहुत महत्वपूर्ण है।",
+      "language": "hi",
+      "style": "empathetic_motherly",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Hindi - Neutral Nurse Style (Male)",
+      "text": "कृपया अपनी नियमित जांचें समय पर करवाते रहें। अगर डॉक्टर ने आपको ब्लड टेस्ट या अल्ट्रासाउंड की तारीख दी है, तो उसे मिस न करें। गर्भावस्था के दौरान आपका और बच्चे का स्वास्थ्य लगातार मॉनिटर करना बेहद ज़रूरी है।",
+      "language": "hi",
+      "style": "neutral_nurse",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Bengali - Empathetic Motherly Style (Female)",
+      "text": "আপনি কেমন আছেন? গর্ভাবস্থায় নিজের যত্ন নেওয়া খুবই গুরুত্বপূর্ণ। যদি আজ একটু মাথা ঘোরা, বমি ভাব বা দুর্বল লাগছে, তাহলে একটু বিশ্রাম নিন, হালকা গরম জল পান করুন এবং খুব ভারী কাজ এড়িয়ে চলুন। ধীরে ধীরে সব ঠিক হয়ে যাবে, আপনি একা নন।",
+      "language": "bn",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Bengali - Neutral Nurse Style (Female)",
+      "text": "অনুগ্রহ করে আপনার ওষুধ প্রতিদিন সময়মতো গ্রহণ করুন। আয়রন এবং ক্যালসিয়াম সাপ্লিমেন্ট গর্ভাবস্থায় অত্যন্ত জরুরি, কারণ এগুলো আপনার শরীরের রক্ত এবং হাড়কে মজবুত রাখে। পর্যাপ্ত জল পান করুন এবং হালকা ব্যায়াম করার চেষ্টা করুন।",
+      "language": "bn",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Bengali - Friend Casual Style (Male)",
+      "text": "কী খবর, কেমন আছো আজ? দেখছি তুমি একটু ক্লান্ত লাগছো। একটু বিশ্রাম নাও, আর চিন্তা করো না। কাল যদি আবহাওয়া ভালো থাকে, তাহলে আমরা দু'জনে একটু হালকা হাঁটতে বের হতে পারি, মনও ভালো হয়ে যাবে।",
+      "language": "bn",
+      "style": "friend_casual",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Marathi - Empathetic Motherly Style (Female)",
+      "text": "नमस्कार. तुम्ही आज कशा आहात? गर्भावस्थेत मन शांत ठेवणे, पुरेशी झोप घेणे आणि हलका आहार घेणे अत्यंत महत्त्वाचे आहे. जर तुम्हाला थकवा, चक्कर किंवा उलट्या होण्यासारखे वाटत असेल तर थोडा वेळ आडवे व्हा आणि कोमट पाणी प्या.",
+      "language": "mr",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Marathi - Urgent Alert Style (Female)",
+      "text": "सावधान. जर तुम्हाला अचानक तीव्र पोटदुखी, जास्त रक्तस्त्राव, उंच ताप, डोके गरगरणे किंवा श्वास घेण्यास त्रास होत असेल तर त्वरित जवळच्या रुग्णालयात जा. ही गंभीर अवस्था असू शकते, म्हणून विलंब करू नका.",
+      "language": "mr",
+      "style": "urgent_alert",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Marathi - Neutral Nurse Style (Male)",
+      "text": "तुमच्या नियमित तपासण्या वेळेवर करून घ्या. डॉक्टरांनी सांगितलेल्या तारखेला सोनोग्राफी, रक्त तपासणी किंवा इतर चाचण्या करणे आवश्यक आहे. गरोदरपणात आई आणि बाळ दोघांचेही आरोग्य सतत पाहणे गरजेचे असते.",
+      "language": "mr",
+      "style": "neutral_nurse",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Telugu - Neutral Nurse Style (Female)",
+      "text": "దయచేసి మీ మందులను ప్రతిరోజూ సమయానికి తీసుకోండి. గర్భధారణ సమయంలో ఐరన్ మరియు కాల్షియం మాత్రలు తీసుకోవడం చాలా అవసరం, ఎందుకంటే ఇవి రక్తం మరియు ఎముకల బలాన్ని పెంచుతాయి. రోజు కొంతసేపు నడవడం కూడా ఆరోగ్యానికి మంచిది.",
+      "language": "te",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Telugu - Friend Casual Style (Female)",
+      "text": "హే, ఎలా ఉన్నావు? నిన్ను చూసి కొంచెం అలసిపోయినట్టుంది. ఇవాళ అంత పనులు చేయకుండా కొంచెం విశ్రాంతి తీసుకో. రేపు మనం కాస్త సాయంత్రం బయటకు వెళ్లి గాలి తిని వస్తే నీ మూడ్ కూడా బాగుపడుతుంది.",
+      "language": "te",
+      "style": "friend_casual",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Telugu - Empathetic Motherly Style (Male)",
+      "text": "నమస్తే. నేడు మీకు ఎలా అనిపిస్తోంది? గర్భధారణ సమయంలో అలసట, వాంతులు లేదా తల తిరగడం వంటి సమస్యలు కొన్నిసార్లు సహజం. అలాకనిపిస్తే వెంటనే పని ఆపి, కొంతసేపు విశ్రాంతి తీసుకుని గోరువెచ్చని నీరు తాగండి.",
+      "language": "te",
+      "style": "empathetic_motherly",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Kannada - Empathetic Motherly Style (Female)",
+      "text": "ನಮಸ್ಕಾರ. ನೀವು ಇಂದು ಹೇಗಿದ್ದೀರಿ? ಗರ್ಭಧಾರಣೆಯ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಆರೈಕೆ ತುಂಬಾ ಮುಖ್ಯ. ನಿಮಗೆ ದುರ್ಬಲವೆನಿಸುತ್ತಿದ್ದರೆ ಅಥವಾ ತಲೆಸುತ್ತು ಬಂದಂತಾಗಿದ್ದರೆ ಸ್ವಲ್ಪ ವಿಶ್ರಾಂತಿ ತೆಗೆದುಕೊಳ್ಳಿ, ಬಿಸಿನೀರು ಕುಡಿಯಿರಿ ಮತ್ತು ಚಿಂತೆಗೆ ಹೆಜ್ಜೆ ಹಾಕಬೇಡಿ.",
+      "language": "kn",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Kannada - Neutral Nurse Style (Female)",
+      "text": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಔಷಧಿಗಳನ್ನು ಪ್ರತಿದಿನ ಸಮಯಕ್ಕೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಇಕ್ಕಟ್ಟು ಮತ್ತು ಕ್ಯಾಲ್ಸಿಯಂ ಮಾತ್ರೆಗಳು ಗರ್ಭಧಾರಣೆಯ ಸಮಯದಲ್ಲಿ ಅತ್ಯವಶ್ಯಕ. ದಿನವಿಡೀ ಸ್ವಲ್ಪಸ್ವಲ್ಪವಾಗಿ ನೀರು ಕುಡಿಯಿರಿ ಮತ್ತು ಸಾಧ್ಯವಾದಷ್ಟು ಹಣ್ಣು ಮತ್ತು ತರಕಾರಿ ಸೇವಿಸಿ.",
+      "language": "kn",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Kannada - Friend Casual Style (Male)",
+      "text": "ಹೇ, ಇವತ್ತು ಹೇಗಿದ್ದೀಯಾ? ನಿನ್ನನ್ನು ನೋಡಿ ಸ್ವಲ್ಪ ಕ್ಲಾಂತವಾಗಿರುವಂತೆ ಕಾಣುತ್ತಿದೆ. ಕೆಲಸಗಳನ್ನು ಸ್ವಲ್ಪ ಕಡಿಮೆ ಮಾಡು, ಸ್ವಲ್ಪ ಸಮಯ ಪುಸ್ತಕ ಓದು ಅಥವಾ ಸಂಗೀತ ಕೇಳು. ನಾಳೆ ಸಂಜೆ ಹವಾಮಾನ ಚೆನ್ನಾಗಿದ್ದರೆ, ನಾವು ಸ್ವಲ್ಪ ನಡೆದು ಬರಬಹುದು.",
+      "language": "kn",
+      "style": "friend_casual",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Gujarati - Empathetic Motherly Style (Female)",
+      "text": "નમસ્તે. આજે તમને કેવું લાગે છે? ગર્ભાવસ્થા દરમિયાન પૂરતો આરામ, સારો આહાર અને પાણી પીવું ખૂબ જરૂરી છે. જો તમને થાક, ચક્કર કે કમજોરી લાગે તો થોડું આરામ કરો અને ગરમ પાણીની ચુસકીઓ લો. ધીમે ધીમે બધું ઠીક થઈ જશે.",
+      "language": "gu",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Gujarati - Urgent Alert Style (Female)",
+      "text": "ચેતવણી. જો તમને અચાનક ઉંચો તાવ આવે, પેટમાં તીવ્ર દુઃખાવો થાય, વધારે રક્તસ્ત્રાવ થાય અથવા શ્વાસ લેવામાં તકલીફ થાય તો તરત જ હોસ્પિટલનો સંપર્ક કરો. સમય ન બગાડશો, આ ગંભીર સ્થિતિ હોઈ શકે છે.",
+      "language": "gu",
+      "style": "urgent_alert",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Gujarati - Neutral Nurse Style (Male)",
+      "text": "કૃપા કરીને તમારી દવાઓ નિયમિત સમય પર લો. ડૉક્ટરે આપેલી સૂચનાઓ પ્રમાણે ટેસ્ટ અને ચેકઅપ કરાવતા રહો. ગર્ભાવસ્થામાં તમારું અને બાળકનું આરોગ્ય સતત તપાસવું અત્યંત જરૂરી છે.",
+      "language": "gu",
+      "style": "neutral_nurse",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "English - Neutral Nurse Style (Female, Indian English)",
+      "text": "Please remember to take your prescribed medicines on time every day. During pregnancy, it is important to eat small and frequent meals, drink enough water, and include iron-rich foods in your diet. Try to walk for ten to fifteen minutes daily, unless your doctor has advised you otherwise.",
+      "language": "en",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "English - Empathetic Motherly Style (Female, Indian English)",
+      "text": "Hello dear. How are you feeling today? Pregnancy can be tiring, both physically and emotionally. If you feel weak, dizzy or low, please lie down for a while, breathe slowly, and sip some warm water. You are doing your best, and you are not alone in this journey.",
+      "language": "en",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "English - Urgent Alert Style (Female, Indian English)",
+      "text": "Warning. If you suddenly develop a very high fever, severe abdominal pain, heavy bleeding, blurred vision, or difficulty breathing, do not wait at home. Go to the nearest hospital or contact your doctor immediately. These signs could indicate an emergency.",
+      "language": "en",
+      "style": "urgent_alert",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "English - Friend Casual Style (Male, Indian English)",
+      "text": "Hey, how are you doing today? I know some days can feel a bit overwhelming, especially during pregnancy. Take it easy, relax for a while, listen to some music, or talk to a friend you trust. Small breaks can make a big difference to how you feel.",
+      "language": "en",
+      "style": "friend_casual",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Bhojpuri - Friend Casual Style (Female, Dialect)",
+      "text": "अरे का हाल बा? सुनेनी कि आज तनिका कमजोर महसूस होत रहे। देख, बहुत टेंशन मत लs, तनिक आराम कर लs, पानी पी लs अउर भारी काम मत करs। अगर काल मौसम ठीक रहल, त हमनी पार्क में थोड़ देर घूमे चलि जइब, तोहरा मनो बदर हो जाई।",
+      "language": "bho",
+      "style": "friend_casual",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Magadhi - Empathetic Motherly Style (Female, Dialect)",
+      "text": "नमस्ते। तोहर तबियत आज कइसन बा? अगर तोहरा चक्कर आवे लागल हो, देह में कमजोरी लागत हो, त डरइया मत। तनिक आराम कर लस, हल्का खान-पान कर लस आ धीरे-धीरे गुनगुना पानी पीस। तोहर आ बचवा के सेहत हमरा लेल बहुत जरूरी बा।",
+      "language": "mag",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Chhattisgarhi - Neutral Nurse Style (Female, Dialect)",
+      "text": "नमस्कार. दवाई ला टाइम से लेवे बहुत जरूरी हे, खासकर गर्भ के बखत। डॉक्टर जऊन-जऊन टेस्ट कराय बर बोले हावय, उला टाईम पे करावा। जेन दिन तुंहर तबियत ठीक रहय, ओ दिन घलो थोर-थोर कुर्रा चले के कोसिस करा।",
+      "language": "hne",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Maithili - Empathetic Motherly Style (Female, Dialect)",
+      "text": "प्रणाम। अहाँ आज किन्ना अनुभव करैत छी? जँ अहाँक सिर घूमैत छै, देह कमजोर लागि रहल छै या बमन अछि, तँ घबराउ ने करू। थोड़ि देर आराम करू, गुनगुना पानी पीउ और हलका भोजन करू। ई समयमे अहाँक आराम आ पोषण बहुत जरूरी छै।",
+      "language": "mai",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Short Test - Hindi (Female)",
+      "text": "नमस्ते। आप ठीक हैं?",
+      "language": "hi",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Long Test - Hindi - Paragraph Reading (Female)",
+      "text": "यह एक विस्तृत परीक्षण पाठ है जिसमें कई वाक्य और स्वास्थ्य संबंधी निर्देश शामिल हैं। हम यह देखना चाहते हैं कि सिस्टम लंबे पाठ को कितना स्वाभाविक, स्पष्ट और सुगम तरीके से पढ़ पाता है। गर्भावस्था के दौरान पोषण, आराम, हल्का व्यायाम और नियमित जांच करवाना बहुत आवश्यक होता है। सही जानकारी मिलने से माँ और बच्चे दोनों का स्वास्थ्य बेहतर रह सकता है।",
+      "language": "hi",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Stress Test - Hindi with Numbers and Time (Female)",
+      "text": "कृपया अपनी दवा रोज सुबह 8 बजे और रात 8 बजे लें। अगर डॉक्टर ने आपको दिन में 3 बार दवा लेने को कहा है, तो लगभग हर 8 घंटे के अंतर पर दवाई लें, जैसे 6 बजे सुबह, 2 बजे दोपहर और 10 बजे रात। समय का ध्यान रखना बहुत ज़रूरी है।",
+      "language": "hi",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Stress Test - Code-Switching Hindi + English (Female)",
+      "text": "अगर आपको किसी बात को लेकर बहुत ज्यादा tension हो रही है, तो please अपने डॉक्टर या counsellor से बात करें। सिर्फ internet पर पढ़ी हुई information पर भरोसा मत करें, क्योंकि हर body अलग तरह से react करती है। सही guidance के लिए हमेशा trained expert से ही सलाह लें।",
+      "language": "hi",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Very Long Maternal Health Guidance - Hindi (Female)",
+      "text": "गर्भावस्था के हर चरण में आपके शरीर में कई तरह के बदलाव होते हैं। कभी-कभी यह बदलाव थकान, चक्कर या भावनात्मक उतार-चढ़ाव के रूप में दिखाई देते हैं। यह बिल्कुल सामान्य है, लेकिन आपको अपनी दिनचर्या में छोटे-छोटे बदलाव करने की आवश्यकता हो सकती है। उदाहरण के लिए, दिन में भारी भोजन की जगह छोटे-छोटे भोजन लें, नियमित रूप से पानी पीते रहें, और तनाव कम करने के लिए हल्का संगीत सुनें या गहरी साँस लेने की तकनीक अपनाएँ। अगर किसी भी समय आपको तेज दर्द, अत्यधिक रक्तस्राव, अचानक सूजन, धुंधला दिखाई देना या बच्चे की हलचल कम महसूस हो, तो तुरंत डॉक्टर से संपर्क करें।",
+      "language": "hi",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Long Emotional Support - Bengali (Female)",
+      "text": "গর্ভাবস্থায় অনেক সময় শরীরে এবং মনের মধ্যে নানা পরিবর্তন হয়। এটা পুরোপুরি স্বাভাবিক। আপনি যদি কখনো উদ্বিগ্ন বা ভীত অনুভব করেন, তাহলে দয়া করে নিজেকে দোষ দেবেন না। একটু ধীরে ধীরে শ্বাস নিন, শরীরকে শিথিল করুন এবং কাছের মানুষের সাথে কথা বলুন। মনে রাখবেন, আপনি একা নন। হাজারো মা এই পথ দিয়ে গেছেন এবং আপনার মতোই অনুভব করেছেন। যদি কারো সাথে কথা বলতে ইচ্ছা করে, তবে আপনার পরিবারের কেউ বা স্বাস্থ্যকর্মীর সাথে কথা বলতে পারেন। এতে আপনার মন অনেকটা হালকা হয়ে যাবে।",
+      "language": "bn",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Extreme Stress Test - English Medical Emergency (Female)",
+      "text": "This is a critical alert. If the patient develops sudden severe abdominal pain, persistent vomiting, heavy bleeding, or difficulty in breathing, do not wait for any additional symptoms to appear. These conditions may indicate a severe obstetric emergency requiring immediate hospital admission. Please proceed to the nearest healthcare center without delay. Time is extremely crucial in preventing complications for both the mother and the child.",
+      "language": "en",
+      "style": "urgent_alert",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Mixed Multilingual Stress Test - Hindi + English + Bengali Combined (Female)",
+      "text": "अगर आपको बहुत ज्यादा weakness, stress, या anxiety हो रही है, please किसी trusted person से बात करें। Continuous tension mother और baby दोनों के लिए ठीक नहीं है। পানি খান, একটু rest নিন, এবং খुद को ज़्यादा blame मत करें। You are doing your best, and that is enough.",
+      "language": "hi",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Super Long Realistic Dialogue - Friend Casual Style (Female)",
+      "text": "हाय, कैसी हो? सुना कि आज तुम्हें काफी थकान लग रही थी। देखो, ऐसा होना बिल्कुल ठीक है, खासकर इस समय। तुम इतनी सारी चीज़ों से गुजर रही हो—शारीरिक बदलाव, भावना में बदलाव, और ऊपर से रोजमर्रा की जिम्मेदारियाँ। कोई भी थक जाएगा। इसलिए आज थोड़ा आराम कर लो। मोबाइल दूर रखो, आँखें बंद करो और बस रिलैक्स करो। अगर तुम्हें अच्छा लगे तो हल्का सा म्यूज़िक चला लेना। कल हम थोड़ा बाहर टहलने चले चलेंगे, पक्का।",
+      "language": "hi",
+      "style": "friend_casual",
+      "speaker_gender": "female"
+    }
+  ],
+  "curl_examples": {
+    "post_synthesize": "curl -X POST 'http://localhost:8000/synthesize' -H 'Content-Type: application/json' -d '{\"text\": \"नमस्ते। आप कैसी हैं?\", \"language\": \"hi\", \"style\": \"empathetic_motherly\", \"speaker_gender\": \"female\"}'",
+    "post_synthesize_wav": "curl -X POST 'http://localhost:8000/synthesize_wav' -H 'Content-Type: application/json' -d '{\"text\": \"नमस्ते। आप कैसी हैं?\", \"language\": \"hi\", \"style\": \"empathetic_motherly\", \"speaker_gender\": \"female\"}' -o output.wav"
+  },
+  "python_examples": {
+    "post_request_json": "import requests\n\nurl = 'http://localhost:8000/synthesize'\ndata = {\n    'text': 'नमस्ते। आप कैसी हैं?',\n    'language': 'hi',\n    'style': 'empathetic_motherly',\n    'speaker_gender': 'female'\n}\nresponse = requests.post(url, json=data)\nprint(response.json())",
+    "post_request_wav": "import requests\n\nurl = 'http://localhost:8000/synthesize_wav'\ndata = {\n    'text': 'नमस्ते। आप कैसी हैं?',\n    'language': 'hi',\n    'style': 'empathetic_motherly',\n    'speaker_gender': 'female'\n}\nresponse = requests.post(url, json=data)\nwith open('output.wav', 'wb') as f:\n    f.write(response.content)\nprint('Saved to output.wav')"
+  }
+}
