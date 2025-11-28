@@ -265,6 +265,90 @@
       "language": "hi",
       "style": "friend_casual",
       "speaker_gender": "female"
+    },
+    {
+      "description": "Bengali - Alternative Female Speaker Showcase (Aditi - High-Pitched Expressive)",
+      "text": "আজ আপনার দিন কেমন কাটছে? মনে রাখবেন, গর্ভাবস্থায় প্রতিটি মুহূর্তই বিশেষ। আপনার শরীরের প্রতি যত্নশীল হন এবং পর্যাপ্ত বিশ্রাম নিন।",
+      "language": "bn",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Bengali - Alternative Male Speaker Showcase (Arjun - Soft Caring)",
+      "text": "আপনি একা নন। আমরা আপনার সাথে আছি। কোনও সমস্যা হলে অবশ্যই একজন স্বাস্থ্যকর্মীর সাথে কথা বলুন।",
+      "language": "bn",
+      "style": "empathetic_motherly",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Marathi - Alternative Female Speaker Showcase (Sunita - High-Pitched Happy)",
+      "text": "तुमची आजची तबियत कशी आहे? लक्षात ठेवा की गरोदरपण ही एक सुंदर यात्रा आहे. स्वतःची काळजी घ्या आणि आनंदात राहा।",
+      "language": "mr",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Telugu - Alternative Male Speaker (Prakash - Gentle)",
+      "text": "మీరు ఎలా ఉన్నారు? గర్భధారణ సమయంలో మీ ఆరోగ్యం చాలా ముఖ్యం. సరైన పోషకాహారం మరియు విశ్రాంతి తీసుకోండి।",
+      "language": "te",
+      "style": "empathetic_motherly",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Kannada - Alternative Female Speaker (Anu - Warm Caring)",
+      "text": "ನೀವು ಇಂದು ಹೇಗಿದ್ದೀರಿ? ಗರ್ಭಧಾರಣೆಯ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಆರೈಕೆ ತುಂಬಾ ಮುಖ್ಯ. ಪ್ರತಿದಿನ ಸ್ವಲ್ಪ ವಿಶ್ರಾಂತಿ ತೆಗೆದುಕೊಳ್ಳಿ ಮತ್ತು ನಿಮ್ಮ ಆರೋಗ್ಯವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಿ।",
+      "language": "kn",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Gujarati - Alternative Female Speaker (Neha - Warm Caring)",
+      "text": "તમે આજે કેવી છો? યાદ રાખો કે ગર્ભાવસ્થા એક સુંદર સફર છે. તમારી સંભાળ લો અને પૂરતો આરામ કરો।",
+      "language": "gu",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "English - Alternative Female Speaker (Mary - Indian English, Clear)",
+      "text": "How are you feeling today? Remember that pregnancy is a beautiful journey. Take care of yourself and ensure you get enough rest and proper nutrition.",
+      "language": "en",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "English - Alternative Male Speaker (Thoma - Indian English, Reassuring)",
+      "text": "Take care of yourself during this special time. If you have any concerns, don't hesitate to speak with a healthcare professional. Your well-being matters.",
+      "language": "en",
+      "style": "empathetic_motherly",
+      "speaker_gender": "male"
+    },
+    {
+      "description": "Bhojpuri - Regional Dialect Showcase (Female)",
+      "text": "तोहर आज कइसन बा? देख, गर्भ के समय में बहुत सावधानी बरतनी चाही। पुराना खाना, ज्यादा तला-भुना कुछ ना खावs, और समय-समय पर डॉक्टर से जांच करवावs।",
+      "language": "bho",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Magadhi - Regional Dialect Showcase (Female)",
+      "text": "तोहर तबियत आज कइसन बा? अगर तोहरा कोनो परेशानी हो रहल हो, त डरइया मत। तुरंत डॉक्टर के पास चल जाइए।",
+      "language": "mag",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Chhattisgarhi - Regional Dialect Showcase (Female)",
+      "text": "तुंहर आज कइसन लगत हे? गर्भ के बखत बहुत ध्यान रखे के चाही। पुराना खाना मत खावे, ताजा फल और सब्जी खावे, और रोज थोर-थोर चल बरे के कोसिस करे।",
+      "language": "hne",
+      "style": "neutral_nurse",
+      "speaker_gender": "female"
+    },
+    {
+      "description": "Maithili - Regional Dialect Showcase (Female)",
+      "text": "अहाँ आज किन्ना अनुभव करैत छी? गर्भावस्था के दौरान स्वयं के देखभाल बहुत जरूरी छै। समय-समय पर चिकित्सक से मिलैत रहू आरू स्वस्थ रहू।",
+      "language": "mai",
+      "style": "empathetic_motherly",
+      "speaker_gender": "female"
     }
   ],
   "curl_examples": {

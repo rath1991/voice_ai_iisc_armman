@@ -13,9 +13,21 @@ DIALECT_TO_BASE_LANG = {
     "mai": "hi",   # Maithili → Hindi base for now (text is still Maithili)
 }
 
+# Available speakers per language (from Indic Parler-TTS documentation)
+LANG_SPEAKERS = {
+    "hi": {"female": ["Divya", "Rani"], "male": ["Rohit", "Aman"]},
+    "bn": {"female": ["Aditi", "Rashmi", "Riya"], "male": ["Arjun", "Arnav", "Tapan"]},
+    "mr": {"female": ["Sunita", "Radha", "Isha"], "male": ["Sanjay", "Nikhil", "Varun"]},
+    "te": {"female": ["Lalitha"], "male": ["Prakash", "Kiran"]},
+    "kn": {"female": ["Anu", "Vidya"], "male": ["Suresh", "Chetan"]},
+    "gu": {"female": ["Neha"], "male": ["Yash"]},
+    "en": {"female": ["Mary", "Swapna", "Meera", "Sneha", "Tisha", "Priya", "Gauri", "Nisha", "Kavya", "Riya"], 
+           "male": ["Thoma", "Dinesh", "Jatin", "Aakash", "Kabir", "Chingkhei", "Thoiba", "Tarun", "Raghav", "Ravi", "Vikas"]},
+}
 
 # Per-language, per-gender style configs using REAL Indic Parler speakers
-# These are aligned with the documentation you pasted.
+# Enhanced with Indic Parler-TTS control parameters: background noise, reverberation, 
+# expressivity, pitch, speaking rate, and voice quality
 LANG_SPEAKER_STYLES = {
     # Hindi
     "hi": {
@@ -23,22 +35,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Divya",
             "styles": {
                 "empathetic_motherly": (
-                    "Divya's voice is warm and caring, with a natural Hindi accent. "
-                    "She speaks at a slightly slow pace with gentle expressiveness, "
-                    "as if counselling someone, in a very clear, close-up recording with almost no background noise."
+                    "Divya speaks with a warm, caring tone and slightly slow pace in a close-sounding environment. "
+                    "Her voice has a slightly high pitch with gentle expressiveness and emotional depth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Divya's voice is calm and neutral, with a clear Hindi accent, "
-                    "moderate speaking speed, and a very clean, close recording suitable for medical advice."
+                    "Divya speaks at a moderate pace with a neutral tone in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for medical advice and health information."
                 ),
                 "urgent_alert": (
-                    "Divya's voice is serious and firm, with a natural Hindi accent. "
-                    "She speaks slightly faster than normal, clearly emphasizing warning phrases, "
-                    "in a very clear, close-sounding recording with no background noise."
+                    "Divya speaks with a serious, firm tone at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear emphasis and expressiveness on warning phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and no background noise."
                 ),
                 "friend_casual": (
-                    "Divya speaks in a friendly, conversational Hindi tone, at a normal pace, "
-                    "slightly expressive and relaxed, with a clear, close-sounding recording."
+                    "Divya speaks in a friendly, conversational tone at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive and animated delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -46,22 +65,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Rohit",
             "styles": {
                 "empathetic_motherly": (
-                    "Rohit's voice is gentle and reassuring, with a natural Hindi accent. "
-                    "He speaks at a slightly slow pace with soft expressiveness, "
-                    "in a very clear close-up recording with almost no background noise."
+                    "Rohit speaks with a gentle, reassuring tone and slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with soft expressiveness and emotional warmth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Rohit's voice is neutral and clear, with a natural Hindi accent, "
-                    "moderate speaking rate, and a clean, close recording suitable for health information."
+                    "Rohit speaks at a moderate pace with a neutral, clear tone in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for health information."
                 ),
                 "urgent_alert": (
-                    "Rohit's voice is firm and serious, with a natural Hindi accent. "
-                    "He speaks at a slightly fast pace, clearly emphasizing urgent parts, "
-                    "with a very clear, close recording and minimal background noise."
+                    "Rohit speaks with a firm, serious tone at a slightly fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with clear emphasis and expressiveness on urgent parts, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Rohit speaks in a relaxed, conversational Hindi tone, with a natural accent, "
-                    "normal speed, slightly expressive delivery, and a clear close-sounding recording."
+                    "Rohit speaks in a relaxed, conversational tone at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -73,21 +99,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Aditi",
             "styles": {
                 "empathetic_motherly": (
-                    "Aditi speaks with a warm, caring Bengali tone and natural Kolkata accent. "
-                    "Her voice has a slightly high pitch, slow pace, and gentle expressiveness, "
-                    "captured in a very clear, close recording with almost no background noise."
+                    "Aditi speaks with a warm, caring Bengali tone and slightly slow pace in a close-sounding environment. "
+                    "Her voice has a slightly high pitch with gentle expressiveness and emotional depth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Aditi speaks with a neutral Bengali accent, normal pace, "
-                    "clear articulation, and a very clean, close-sounding recording suitable for medical guidance."
+                    "Aditi speaks at a moderate pace with a neutral Bengali tone in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for medical guidance."
                 ),
                 "urgent_alert": (
-                    "Aditi speaks with a serious Bengali tone and natural accent, "
-                    "slightly fast pace, and clear emphasis on warning phrases, in a close, noise-free recording."
+                    "Aditi speaks with a serious Bengali tone at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear emphasis and expressiveness on warning phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and no background noise."
                 ),
                 "friend_casual": (
-                    "Aditi speaks in a friendly, conversational Bengali tone, "
-                    "moderate pace, slightly expressive, with a clear, close recording."
+                    "Aditi speaks in a friendly, conversational Bengali tone at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive and animated delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -95,20 +129,28 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Arjun",
             "styles": {
                 "empathetic_motherly": (
-                    "Arjun speaks gently with a soft Bengali accent, slightly slow pace, "
-                    "and emotional warmth, captured in a clear, close-sounding recording."
+                    "Arjun speaks with a gentle, soft Bengali tone and slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with emotional warmth and expressiveness, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Arjun speaks with a neutral Bengali accent, moderate pace, "
-                    "clear delivery and a clean close recording."
+                    "Arjun speaks at a moderate pace with a neutral Bengali tone in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "urgent_alert": (
-                    "Arjun speaks with a serious Bengali tone, slightly fast pace, "
-                    "and clear emphasis on important warnings, in a very clear recording."
+                    "Arjun speaks with a serious Bengali tone at a slightly fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with clear emphasis and expressiveness on important warnings, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Arjun speaks in a relaxed, conversational Bengali tone, "
-                    "normal pace, slightly expressive, with a close, clear recording."
+                    "Arjun speaks in a relaxed, conversational Bengali tone at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -120,20 +162,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Sunita",
             "styles": {
                 "empathetic_motherly": (
-                    "Sunita speaks with a warm, caring Marathi tone, slightly slow pace, "
-                    "and expressive delivery, in a very clear, close recording."
+                    "Sunita speaks with a warm, caring Marathi tone and slightly slow pace in a close-sounding environment. "
+                    "Her voice has a slightly high pitch with expressive delivery and emotional warmth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Sunita speaks with a clear Marathi accent, neutral tone, "
-                    "moderate pace, and a clean close-sounding recording."
+                    "Sunita speaks at a moderate pace with a neutral Marathi tone in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for medical instructions."
                 ),
                 "urgent_alert": (
-                    "Sunita speaks firmly with a serious Marathi tone, slightly fast pace, "
-                    "and clear stress on warning phrases, in a noise-free close recording."
+                    "Sunita speaks with a serious, firm Marathi tone at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear stress and expressiveness on warning phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and no background noise."
                 ),
                 "friend_casual": (
-                    "Sunita speaks in a friendly, conversational Marathi tone, "
-                    "normal speed, slightly expressive, and clearly recorded."
+                    "Sunita speaks in a friendly, conversational Marathi tone at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -141,20 +192,28 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Sanjay",
             "styles": {
                 "empathetic_motherly": (
-                    "Sanjay speaks gently with emotional warmth in a Marathi accent, "
-                    "slightly slow pace, and clear close recording."
+                    "Sanjay speaks with a gentle Marathi tone and slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with emotional warmth and expressiveness, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Sanjay speaks with a neutral Marathi tone, moderate pace, "
-                    "and a very clear close-sounding recording."
+                    "Sanjay speaks at a moderate pace with a neutral Marathi tone in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "urgent_alert": (
-                    "Sanjay speaks with a serious Marathi tone, fast pace, "
-                    "and clear emphasis on urgent content, in a clean recording."
+                    "Sanjay speaks with a serious Marathi tone at a fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with clear emphasis and expressiveness on urgent content, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Sanjay speaks in a relaxed, conversational Marathi tone, "
-                    "normal pace, and slightly expressive delivery with a clear recording."
+                    "Sanjay speaks in a relaxed, conversational Marathi tone at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -166,20 +225,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Lalitha",
             "styles": {
                 "empathetic_motherly": (
-                    "Lalitha speaks with a warm, caring Telugu tone, slightly slow pace, "
-                    "and gentle expressiveness, in a very clear, close recording."
+                    "Lalitha speaks with a warm, caring Telugu tone and slightly slow pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with gentle expressiveness and emotional depth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Lalitha speaks in a neutral Telugu accent, moderate pace, "
-                    "and clear, close recording suitable for instructions."
+                    "Lalitha speaks at a moderate pace with a neutral Telugu tone in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for instructions."
                 ),
                 "urgent_alert": (
-                    "Lalitha speaks with a serious Telugu tone, slightly fast pace, "
-                    "and clear stress on warning phrases, in a close, noise-free recording."
+                    "Lalitha speaks with a serious Telugu tone at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear stress and expressiveness on warning phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and no background noise."
                 ),
                 "friend_casual": (
-                    "Lalitha speaks in a friendly, conversational Telugu tone, "
-                    "normal speed, slightly expressive, with clear audio."
+                    "Lalitha speaks in a friendly, conversational Telugu tone at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive and animated delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -187,20 +255,28 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Prakash",
             "styles": {
                 "empathetic_motherly": (
-                    "Prakash speaks gently with emotional warmth in a Telugu accent, "
-                    "slightly slow pace, and clear close recording."
+                    "Prakash speaks with a gentle Telugu tone and slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with emotional warmth and expressiveness, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Prakash speaks in a neutral Telugu tone, moderate pace, "
-                    "and a clean, close recording."
+                    "Prakash speaks at a moderate pace with a neutral Telugu tone in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "urgent_alert": (
-                    "Prakash speaks with a serious Telugu tone, fast pace, "
-                    "and sharp emphasis on urgent parts, captured clearly."
+                    "Prakash speaks with a serious Telugu tone at a fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with sharp emphasis and expressiveness on urgent parts, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Prakash speaks in a relaxed, conversational Telugu tone, "
-                    "normal pace, slightly expressive, and clearly recorded."
+                    "Prakash speaks in a relaxed, conversational Telugu tone at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -212,20 +288,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Anu",
             "styles": {
                 "empathetic_motherly": (
-                    "Anu speaks with a warm, caring Kannada tone, slightly slow pace, "
-                    "and gentle expressiveness, in a clear, close-sounding recording."
+                    "Anu speaks with a warm, caring Kannada tone and slightly slow pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with gentle expressiveness and emotional depth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Anu speaks with a neutral Kannada accent, moderate pace, "
-                    "and clean, close recording suitable for health counselling."
+                    "Anu speaks at a moderate pace with a neutral Kannada tone in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for health counselling."
                 ),
                 "urgent_alert": (
-                    "Anu speaks with a serious Kannada tone, slightly fast pace, "
-                    "and clear emphasis on warnings, in a very clear recording."
+                    "Anu speaks with a serious Kannada tone at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear emphasis and expressiveness on warnings, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Anu speaks in a friendly, conversational Kannada tone, "
-                    "normal speed, slightly expressive, with clear audio."
+                    "Anu speaks in a friendly, conversational Kannada tone at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive and animated delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -233,20 +318,28 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Suresh",
             "styles": {
                 "empathetic_motherly": (
-                    "Suresh speaks gently with emotional warmth in a Kannada accent, "
-                    "slightly slow pace, and a clear close recording."
+                    "Suresh speaks with a gentle Kannada tone and slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with emotional warmth and expressiveness, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Suresh speaks in a neutral Kannada tone, moderate speed, "
-                    "and a clean, close-sounding recording."
+                    "Suresh speaks at a moderate pace with a neutral Kannada tone in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "urgent_alert": (
-                    "Suresh speaks with a firm Kannada tone, slightly fast pace, "
-                    "and clear emphasis on urgent content, in a noise-free recording."
+                    "Suresh speaks with a firm Kannada tone at a slightly fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with clear emphasis and expressiveness on urgent content, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Suresh speaks in a relaxed, conversational Kannada tone, "
-                    "normal pace, slightly expressive, and clearly recorded."
+                    "Suresh speaks in a relaxed, conversational Kannada tone at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -258,20 +351,28 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Neha",
             "styles": {
                 "empathetic_motherly": (
-                    "Neha speaks with a warm, caring Gujarati tone, slightly slow pace, "
-                    "and emotional warmth, in a very clear, close recording."
+                    "Neha speaks with a warm, caring Gujarati tone and slightly slow pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with emotional warmth and expressiveness, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Neha speaks with a neutral Gujarati accent, moderate pace, "
-                    "and a clean, close-sounding recording."
+                    "Neha speaks at a moderate pace with a neutral Gujarati tone in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "urgent_alert": (
-                    "Neha speaks with a serious Gujarati tone, slightly fast pace, "
-                    "and clear emphasis on warnings, in a very clear recording."
+                    "Neha speaks with a serious Gujarati tone at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear emphasis and expressiveness on warnings, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Neha speaks in a friendly, conversational Gujarati tone, "
-                    "normal pace, slightly expressive, with clear audio."
+                    "Neha speaks in a friendly, conversational Gujarati tone at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -279,20 +380,28 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Yash",
             "styles": {
                 "empathetic_motherly": (
-                    "Yash speaks gently with emotional warmth in a Gujarati accent, "
-                    "slightly slow pace, and clear close recording."
+                    "Yash speaks with a gentle Gujarati tone and slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with emotional warmth and expressiveness, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Yash speaks in a neutral Gujarati tone, moderate speed, "
-                    "and a clean, close recording."
+                    "Yash speaks at a moderate pace with a neutral Gujarati tone in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "urgent_alert": (
-                    "Yash speaks with a firm Gujarati tone, slightly fast pace, "
-                    "and clear stress on urgent phrases, in a noise-free recording."
+                    "Yash speaks with a firm Gujarati tone at a slightly fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with clear stress and expressiveness on urgent phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Yash speaks in a relaxed, conversational Gujarati tone, "
-                    "normal pace, slightly expressive, with clear audio."
+                    "Yash speaks in a relaxed, conversational Gujarati tone at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -304,21 +413,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Mary",
             "styles": {
                 "empathetic_motherly": (
-                    "Mary speaks in Indian English with a warm, caring tone. "
-                    "Her voice has a slightly slow pace, gentle expressiveness, "
-                    "and very clear, close-up audio, suitable for counselling pregnant women."
+                    "A female speaker with an Indian English accent delivers warm, caring speech with a slightly slow pace in a close-sounding environment. "
+                    "Her voice has a slightly high pitch with gentle expressiveness and emotional depth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Mary speaks in neutral Indian English, moderate speed, "
-                    "clear articulation, and a clean close recording suitable for medical instructions."
+                    "A female speaker with an Indian English accent delivers neutral speech at a moderate pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for medical instructions."
                 ),
                 "urgent_alert": (
-                    "Mary speaks in serious Indian English, slightly fast, "
-                    "with clear emphasis on warning phrases and a very clear, close-sounding recording."
+                    "A female speaker with an Indian English accent delivers serious, firm speech at a slightly fast pace in a close-sounding environment. "
+                    "Her voice has a moderate pitch with clear emphasis and expressiveness on warning phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and no background noise."
                 ),
                 "friend_casual": (
-                    "Mary speaks in a friendly, conversational Indian English tone, "
-                    "normal pace, slightly expressive, with clear audio."
+                    "A female speaker with an Indian English accent delivers friendly, conversational speech at a normal pace in a close-sounding environment. "
+                    "Her voice has a balanced pitch with slightly expressive and animated delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -326,20 +443,29 @@ LANG_SPEAKER_STYLES = {
             "default_speaker": "Thoma",
             "styles": {
                 "empathetic_motherly": (
-                    "Thoma speaks in Indian English with a gentle, reassuring tone, "
-                    "slightly slow pace, and clear close recording."
+                    "A male speaker with an Indian English accent delivers gentle, reassuring speech with a slightly slow pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with soft expressiveness and emotional warmth, "
+                    "delivered with moderate speed. The recording is of very high quality, very clear, "
+                    "with the speaker's voice sounding close up and almost no background noise."
                 ),
                 "neutral_nurse": (
-                    "Thoma speaks in neutral Indian English, moderate speed, "
-                    "and a clean close-sounding recording with clear articulation."
+                    "A male speaker with an Indian English accent delivers neutral, clear speech at a moderate pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slight expressiveness, "
+                    "delivered at normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise, "
+                    "suitable for health information."
                 ),
                 "urgent_alert": (
-                    "Thoma speaks in serious Indian English, slightly fast pace, "
-                    "with clear stress on urgent phrases, and very clear audio."
+                    "A male speaker with an Indian English accent delivers firm, serious speech at a slightly fast pace in a close-sounding environment. "
+                    "His voice has a moderate pitch with clear stress and expressiveness on urgent phrases, "
+                    "delivered with faster than normal speed. The recording is of very high quality, very clear audio, "
+                    "with the speaker's voice sounding close up and minimal background noise."
                 ),
                 "friend_casual": (
-                    "Thoma speaks in a relaxed, conversational Indian English tone, "
-                    "normal pace, slightly expressive, with clear audio."
+                    "A male speaker with an Indian English accent delivers relaxed, conversational speech at a normal pace in a close-sounding environment. "
+                    "His voice has a balanced pitch with slightly expressive delivery, "
+                    "moderate speed. The recording is of high quality, clear audio, "
+                    "with the speaker's voice sounding close up and only minimal background noise."
                 ),
             },
         },
@@ -357,9 +483,17 @@ def resolve_effective_lang(lang_code: str) -> str:
 def build_caption(lang_code: str, style: str, speaker_gender: str = "female") -> str:
     """
     Build a Parler-style description caption using:
-      - A real Indic speaker name (Divya, Rohit, Aditi, etc.)
-      - Per-language, per-style descriptions
+      - A real Indic speaker name (Divya, Rohit, Aditi, etc.) where applicable
+      - Per-language, per-style descriptions with Indic Parler-TTS control parameters
       - Optional dialect note for Bhojpuri / Magadhi / Chhattisgarhi / Maithili
+    
+    Control parameters used:
+    - Background Noise: clear, minimal, almost no background noise
+    - Reverberation: close-sounding environment
+    - Expressivity: gentle, slight, expressive, animated
+    - Pitch: slightly high, moderate, balanced
+    - Speaking Rate: slightly slow, moderate, normal, slightly fast, faster
+    - Voice Quality: very high quality, very clear audio, clear audio
     """
     base_lang = resolve_effective_lang(lang_code)
 
@@ -393,3 +527,28 @@ def build_caption(lang_code: str, style: str, speaker_gender: str = "female") ->
         caption += " The speech is delivered in a Maithili-influenced Hindi accent, reflecting the Mithila region."
 
     return caption
+
+
+def get_speaker_name(lang_code: str, speaker_gender: str = "female") -> str:
+    """
+    Get the default speaker name for a given language and gender.
+    Returns the speaker name if available, otherwise returns None.
+    """
+    base_lang = resolve_effective_lang(lang_code)
+    lang_cfg = LANG_SPEAKER_STYLES.get(base_lang) or LANG_SPEAKER_STYLES["hi"]
+    
+    gender_key = "male" if speaker_gender and speaker_gender.lower() == "male" else "female"
+    if gender_key not in lang_cfg:
+        gender_key = "female"
+    
+    return lang_cfg[gender_key].get("default_speaker", None)
+
+
+def get_available_speakers(lang_code: str, speaker_gender: str = "female") -> list:
+    """
+    Get list of available speakers for a given language and gender.
+    Returns empty list if not available.
+    """
+    base_lang = resolve_effective_lang(lang_code)
+    speakers = LANG_SPEAKERS.get(base_lang, {})
+    return speakers.get(speaker_gender.lower(), [])

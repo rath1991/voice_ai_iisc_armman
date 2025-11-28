@@ -10,6 +10,14 @@ import json
 import sys
 from pathlib import Path
 
+# Import styles module to show speaker and description info
+try:
+    from styles import build_caption, get_speaker_name, get_available_speakers
+except ImportError:
+    build_caption = None
+    get_speaker_name = None
+    get_available_speakers = None
+
 BASE_URL = "http://localhost:8000"
 
 # Directory to store generated WAV files
@@ -35,6 +43,16 @@ def test_post_synthesize(text, language="hi", style="empathetic_motherly", speak
     print(f"\nTesting POST /synthesize...")
     print(f"  Text: {text[:50]}...")
     print(f"  Language: {language}, Style: {style}, Gender: {speaker_gender}")
+    
+    # Show speaker and description info if available
+    if get_speaker_name:
+        speaker = get_speaker_name(language, speaker_gender)
+        if speaker:
+            print(f"  Speaker: {speaker}")
+    
+    if build_caption:
+        description = build_caption(language, style, speaker_gender)
+        print(f"  Description: {description[:100]}...")
     
     url = f"{BASE_URL}/synthesize"
     data = {
@@ -75,6 +93,16 @@ def test_post_synthesize_wav(
     print(f"\nTesting POST /synthesize_wav...")
     print(f"  Text: {text[:50]}...")
     print(f"  Language: {language}, Style: {style}, Gender: {speaker_gender}")
+    
+    # Show speaker and description info if available
+    if get_speaker_name:
+        speaker = get_speaker_name(language, speaker_gender)
+        if speaker:
+            print(f"  Speaker: {speaker}")
+    
+    if build_caption:
+        description = build_caption(language, style, speaker_gender)
+        print(f"  Description: {description[:100]}...")
     
     url = f"{BASE_URL}/synthesize_wav"
     data = {
