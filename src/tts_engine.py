@@ -30,7 +30,8 @@ class TTSEngine:
         cfg = CONFIG
 
         self.model_id: str = cfg["model_id"]
-        self.sample_rate: int = cfg.get("sample_rate", 24000)
+        # We will prioritize the model's own config for sample rate later
+        self.default_sample_rate: int = cfg.get("sample_rate", 24000)
         
         # Determine device: check CUDA availability even if config says "cuda"
         requested_device = cfg.get("device", "cuda" if torch.cuda.is_available() else "cpu")
@@ -83,13 +84,16 @@ class TTSEngine:
 
     def _to_wav_bytes(self, audio_arr: np.ndarray) -> bytes:
         """
-        Convert a float waveform to WAV bytes using the configured sample rate.
+        Convert a float waveform to WAV bytes using the model's sample rate.
         """
         # Ensure 1D float32
         audio_arr = np.asarray(audio_arr, dtype=np.float32).squeeze()
 
+        # Use model's config sample rate if available, else fallback
+        sr = getattr(self.model.config, "sampling_rate", self.default_sample_rate)
+
         buf = io.BytesIO()
-        sf.write(buf, audio_arr, self.sample_rate, format="WAV")
+        sf.write(buf, audio_arr, sr, format="WAV")
         buf.seek(0)
         return buf.read()
 
@@ -111,17 +115,17 @@ class TTSEngine:
         normalized_text = normalize_text(text, lang_norm)
 
         # Tokenize caption/description
+        # REMOVED truncation=True to match working script
         desc_inputs = self.description_tokenizer(
             description,
             return_tensors="pt",
-            truncation=True,
         ).to(self.device)
 
         # Tokenize prompt/text
+        # REMOVED truncation=True to match working script
         prompt_inputs = self.prompt_tokenizer(
             normalized_text,
             return_tensors="pt",
-            truncation=True,
         ).to(self.device)
 
         with torch.no_grad():

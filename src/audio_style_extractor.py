@@ -3,136 +3,140 @@
 import numpy as np
 import librosa
 
-
 def analyze_ref_audio(audio_path: str) -> dict:
     """
-    Analyse reference audio and return coarse style attributes:
-    - pitch: low / medium / high (for internal use, we will soften this in caption)
-    - speed: slow / medium / fast
-    - energy: calm / neutral / expressive
-    - gender_hint: male / female (from F0, best-effort)
-    - noisiness: qualitative description
+    Analyzes reference audio to extract style and gender.
+    Uses a Voting System (Pitch + Timbre) to fix gender misclassification.
     """
-    y, sr = librosa.load(audio_path, sr=None, mono=True)
-
-    # --- Pitch (F0) ---
-    try:
-        f0 = librosa.yin(y, fmin=50, fmax=400)
-        f0_valid = f0[f0 > 0]
-        mean_f0 = float(np.median(f0_valid)) if len(f0_valid) else 180.0
-    except Exception:
-        mean_f0 = 180.0
-
-    if mean_f0 < 130:
-        pitch = "low"
-    elif mean_f0 < 220:
-        pitch = "medium"
-    else:
-        pitch = "high"
-
-    # --- Tempo / speaking rate ---
-    try:
-        tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
-    except Exception:
-        tempo = 110.0
-
-    if tempo < 90:
-        speed = "slow"
-    elif tempo < 130:
-        speed = "medium"
-    else:
-        speed = "fast"
-
-    # --- Energy / expressivity ---
-    rms = librosa.feature.rms(y=y)[0]
-    mean_rms = float(np.mean(rms))
-    std_rms = float(np.std(rms))
-
-    if mean_rms < 0.03 and std_rms < 0.02:
-        energy = "calm"
-    elif mean_rms < 0.06:
-        energy = "neutral"
-    else:
-        energy = "expressive"
-
-    # --- Gender hint from F0 (best-effort, not perfect) ---
-    # Typical rough ranges:
-    #   male:   ~80–165 Hz
-    #   female: ~165–255 Hz
-    if mean_f0 <= 160:
-        gender_hint = "male"
-    elif mean_f0 >= 180:
-        gender_hint = "female"
-    else:
-        # ambiguous band → default to female (more common in your use-case)
-        gender_hint = "female"
-
-    # --- Noisiness via spectral flatness ---
-    S = np.abs(librosa.stft(y))
-    flatness = np.mean(librosa.feature.spectral_flatness(S=S))
-    if flatness < 0.2:
-        noisiness = "with almost no background noise"
-    elif flatness < 0.4:
-        noisiness = "with a bit of background noise"
-    else:
-        noisiness = "with noticeable background noise"
-
-    return {
-        "pitch": pitch,
-        "speed": speed,
-        "energy": energy,
-        "gender_hint": gender_hint,
-        "noisiness": noisiness,
+    # Default fallback style
+    style = {
+        "pitch": "medium",
+        "speed": "medium",
+        "energy": "neutral",
+        "gender_hint": "female", # Safe default for maternal context
+        "noisiness": "with almost no background noise"
     }
 
+    try:
+        # Load audio (mono)
+        y, sr = librosa.load(audio_path, sr=None, mono=True)
+        if len(y) == 0: return style
 
-def build_caption(style: dict, language: str, gender_override: str | None = None) -> str:
+        # --- FEATURE 1: PITCH (F0) ---
+        # Yin is robust for fundamental frequency
+        f0 = librosa.yin(y, fmin=60, fmax=300)
+        f0_valid = f0[f0 > 0]
+        
+        if len(f0_valid) > 0:
+            median_f0 = float(np.median(f0_valid))
+        else:
+            median_f0 = 180.0 # Fallback
+
+        # --- FEATURE 2: TIMBRE (Spectral Centroid) ---
+        # This is the "Brightness" of the voice. 
+        # Deep female voices often have higher centroids (>1700Hz) than deep male voices (<1500Hz).
+        cent = librosa.feature.spectral_centroid(y=y, sr=sr)
+        avg_centroid = float(np.mean(cent))
+
+        # --- ROBUST GENDER CLASSIFICATION LOGIC ---
+        # Rule 1: Clear Pitch Boundaries
+        if median_f0 < 110:
+            gender_decision = "male"       # Very deep
+        elif median_f0 > 175:
+            gender_decision = "female"     # Clearly high
+        else:
+            # Rule 2: The "Ambiguous Zone" (110Hz - 175Hz)
+            # This is where we use Timbre (Centroid) as the tie-breaker.
+            if avg_centroid > 1800:
+                gender_decision = "female" # Deep but bright (Female)
+            else:
+                gender_decision = "male"   # Deep and dark (Male)
+
+        style["gender_hint"] = gender_decision
+        
+        # --- Pitch Description (Relative to detected gender) ---
+        # A 160Hz Female is "Low Pitch". A 160Hz Male is "High Pitch".
+        if gender_decision == "female":
+            if median_f0 < 180: style["pitch"] = "low"
+            elif median_f0 > 240: style["pitch"] = "high"
+            else: style["pitch"] = "medium"
+        else: # Male
+            if median_f0 < 100: style["pitch"] = "low"
+            elif median_f0 > 140: style["pitch"] = "high"
+            else: style["pitch"] = "medium"
+
+        # --- FEATURE 3: SPEED (Onset Density) ---
+        onset_env = librosa.onset.onset_strength(y=y, sr=sr)
+        tempo = librosa.beat.tempo(onset_envelope=onset_env, sr=sr)
+        avg_tempo = tempo[0] if isinstance(tempo, np.ndarray) else tempo
+
+        if avg_tempo < 95: style["speed"] = "slow"
+        elif avg_tempo > 135: style["speed"] = "fast"
+        else: style["speed"] = "medium"
+
+        # --- FEATURE 4: ENERGY ---
+        rms = librosa.feature.rms(y=y)[0]
+        if np.std(rms) > 0.03: style["energy"] = "expressive"
+        elif np.mean(rms) < 0.02: style["energy"] = "calm"
+        else: style["energy"] = "neutral"
+
+        # --- FEATURE 5: NOISE ---
+        S = np.abs(librosa.stft(y))
+        flatness = np.mean(librosa.feature.spectral_flatness(S=S))
+        if flatness < 0.05: style["noisiness"] = "with almost no background noise"
+        elif flatness < 0.2: style["noisiness"] = "with a bit of background noise"
+        else: style["noisiness"] = "with noticeable background noise"
+
+        print(f"[Extractor] F0: {median_f0:.1f}Hz | Centroid: {avg_centroid:.0f}Hz | Decision: {gender_decision}")
+
+    except Exception as e:
+        print(f"[Extractor] Analysis Error: {e}")
+        return style
+
+    return style
+
+
+def build_caption(style: dict, language: str, speaker_name: str = None) -> str:
     """
-    Turn style attributes into a Parler-style description string.
-
-    - Gender can be male/female based on reference OR overridden explicitly.
-    - Pitch extremes are softened in wording to avoid super-boomy or squeaky voices.
+    Constructs the prompt.
     """
-    lang_phrase = {
-        "gu": "Gujarati",
-        "hi": "Hindi",
-        "bn": "Bengali",
-        "en": "Indian English",
-        "mr": "Marathi",
-        "te": "Telugu",
-        "kn": "Kannada",
-    }.get(language, "an Indian language")
-
-    # Decide gender: override > style hint > default female
-    if gender_override in ("male", "female"):
-        gender_phrase = gender_override
+    lang_map = {
+        "gu": "Gujarati", "hi": "Hindi", "bn": "Bengali", "en": "Indian English",
+        "mr": "Marathi", "te": "Telugu", "kn": "Kannada", "bho": "Hindi",
+        "mag": "Hindi", "hne": "Hindi", "mai": "Hindi"
+    }
+    
+    lang_phrase = lang_map.get(language, "Indian language")
+    
+    # 1. Subject
+    if speaker_name:
+        intro = f"{speaker_name} speaks"
     else:
-        gender_phrase = style.get("gender_hint", "female")
+        gender = style.get("gender_hint", "female")
+        intro = f"A {lang_phrase} {gender} speaker speaks"
 
-    # Soften pitch categories in wording to avoid muffled sound
-    raw_pitch = style.get("pitch", "medium")
-    if raw_pitch == "low":
-        pitch_phrase = "a slightly lower, warm pitch"
-    elif raw_pitch == "high":
-        pitch_phrase = "a slightly higher, bright pitch"
-    else:
-        pitch_phrase = "a natural, medium pitch"
+    # 2. Style Mapping
+    p_val = style.get("pitch", "medium")
+    if p_val == "low": pitch_phrase = "with a slightly deep, warm pitch"
+    elif p_val == "high": pitch_phrase = "with a slightly high, clear pitch"
+    else: pitch_phrase = "with a natural, balanced pitch"
 
-    # Clamp speed phrases a bit (fast → “medium-fast”)
-    raw_speed = style.get("speed", "medium")
-    if raw_speed == "slow":
-        speed_phrase = "a slow, unhurried speaking pace"
-    elif raw_speed == "fast":
-        speed_phrase = "a medium-fast, energetic pace"
-    else:
-        speed_phrase = "a natural, medium speaking pace"
+    s_val = style.get("speed", "medium")
+    if s_val == "slow": speed_phrase = "at a slow, unhurried pace"
+    elif s_val == "fast": speed_phrase = "at a slightly fast, energetic pace"
+    else: speed_phrase = "at a moderate, natural pace"
 
-    energy = style.get("energy", "calm")
-    noisiness = style.get("noisiness", "with almost no background noise")
+    e_val = style.get("energy", "neutral")
+    if e_val == "calm": tone_phrase = "sounding calm and soothing"
+    elif e_val == "expressive": tone_phrase = "sounding animated and expressive"
+    else: tone_phrase = "sounding clear and neutral"
 
-    return (
-        f"A {lang_phrase} {gender_phrase} speaker with {pitch_phrase} and {speed_phrase}, "
-        f"sounding {energy} but still clear and controlled. The tone is warm and reassuring, "
-        f"like a health worker calmly guiding a pregnant woman in a low-income community. "
-        f"The voice is easy to understand, and the recording is clear and close-mic, {noisiness}."
+    noise_phrase = style.get("noisiness", "with almost no background noise")
+
+    # 3. Assemble
+    caption = (
+        f"{intro} {pitch_phrase} and {speed_phrase}, {tone_phrase}. "
+        f"The recording is of very high quality, very clear audio, close up, {noise_phrase}."
     )
+
+    return caption

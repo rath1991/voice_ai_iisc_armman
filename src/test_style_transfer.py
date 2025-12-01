@@ -1,40 +1,86 @@
 # test_style_transfer.py
 
 from tts_engine import TTSEngine
-from audio_style_extractor import analyze_ref_audio, build_caption
-from styles import resolve_effective_lang
+from audio_style_extractor import analyze_ref_audio
+from styles import resolve_effective_lang, get_speaker_name
 
 import soundfile as sf
 import numpy as np
+import os
 
 def main():
     tts = TTSEngine()
 
     text = "કૃપયા તમારો આયર્નનો ગોળી ભોજન પછી રોજ લો."
     language = "gu"
-    ref_audio_path = "assets/assets_female_gujrati/IISc_SPICORProject_GUJ_F_ENTE_1604.wav"
+    # Ensure this path exists
+    ref_audio_path = "assets/assets_male_gujrati/IISc_SPICORProject_GUJ_M_AGRI_6091.wav"
+
+    if not os.path.exists(ref_audio_path):
+        print(f"Error: Reference audio not found at {ref_audio_path}")
+        return
 
     # 1. Analyze style from reference audio
+    print(f"Analyzing {ref_audio_path}...")
     style = analyze_ref_audio(ref_audio_path)
     print("Extracted style:", style)
 
-    # 2. Build a Parler caption
+    # 2. Resolve Speaker Identity DYNAMICALLY
     lang_norm = resolve_effective_lang(language)
-    caption = build_caption(style, lang_norm)
+    
+    # --- DYNAMIC GENDER SELECTION ---
+    # We trust the robust extractor's decision (which uses Centroid/Timbre to detect female)
+    detected_gender = style.get("gender_hint", "female")
+    
+    # Look up the high-quality speaker name (e.g., 'Neha' for Guj + Female)
+    # If the extractor says "female", this returns "Neha".
+    # If the extractor says "male", this returns "Yash".
+    best_speaker = get_speaker_name(lang_norm, detected_gender)
+    
+    print(f"Detected Gender: {detected_gender}")
+    print(f"Selected Base Speaker: {best_speaker}")
+
+    # 3. Build Caption
+    # We construct the string dynamically based on the specific speaker and extracted style.
+    
+    pitch_val = style.get("pitch", "medium")
+    if pitch_val == "low":
+        pitch_desc = "with a slightly deep, warm pitch"
+    elif pitch_val == "high":
+        pitch_desc = "with a slightly high, clear pitch"
+    else:
+        pitch_desc = "with a natural, balanced pitch"
+
+    speed_val = style.get("speed", "medium")
+    if speed_val == "slow":
+        speed_desc = "at a slow, unhurried pace"
+    elif speed_val == "fast":
+        speed_desc = "at a slightly fast, energetic pace"
+    else:
+        speed_desc = "at a moderate, natural pace"
+
+    # The Magic Formula: "{Name} speaks..." 
+    # This anchors the voice identity while applying the style attributes.
+    caption = (
+        f"{best_speaker} speaks {pitch_desc} and {speed_desc}. "
+        f"The recording is of very high quality, very clear audio, close up, with almost no background noise."
+    )
+    
     print("Generated caption:", caption)
 
-    # 3. Generate audio
+    # 4. Generate audio
     audio_bytes = tts.synthesize_with_description(
         text=text,
         language=lang_norm,
         description=caption,
     )
 
-    # 4. Save to file
-    with open("test_guj_from_ref.wav", "wb") as f:
+    # 5. Save to file
+    output_filename = "test_guj_from_ref_1.wav"
+    with open(output_filename, "wb") as f:
         f.write(audio_bytes)
 
-    print("Saved: test_guj_from_ref.wav")
+    print(f"Saved: {output_filename}")
 
 if __name__ == "__main__":
     main()
